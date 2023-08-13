@@ -18,29 +18,7 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-
     intro = "Welcome to the HBNB console"
-    # intro = r"""
-    #
-    #
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    # @@@          #####                                                           @@
-    # @@@        ##     ##                                                         @@
-    # @@@       #*   ((   #              ###        ##                  ##         @@
-    # @@@     ##   /( (((  ##            ###        ##                  ##         @@
-    # @@@    ##    ((((((   ##           #########  #######   ########  ########   @@
-    # @@@   ##    ((((       ##          ###    ##  ##    ### ###   ### ##     ##  @@
-    # @@@  ##     (((((       ##         ###    ##  ##     ## ###   ### ##     ### @@
-    # @@@ #         *(          #        ###    ##  ########  ###   ### ########   @@
-    # @@@ ##         (((         ##                                                @@
-    # @@@ ##.     ##   ##     ###                                                  @@
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    #
-    #
-    # Welcome to the hbnb console
-    # """
     prompt = "(hbnb) "
 
     hbnb_cmd_list = [
@@ -86,37 +64,6 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    # def do_help(self, arg: str):
-    #     """
-    #     This method displays custom help messages
-    #     Args:
-    #         arg:
-    #
-    #     Returns:
-    #
-    #     """
-    #     if arg:
-    #         super().do_help(arg)
-    #     else:
-    #         help_msg = r"""
-    #         Available Commands(For detailed explanation including
-    #         examples, run help <command>):
-    #
-    #         EOF or quit :   Exits the shell
-    #         help        :   Displays this list
-    #         create      :   Creates a new instance
-    #         show        :   Prints a string representation of an
-    #                         instance based on class name
-    #         destroy     :   Deletes an instance based on the class
-    #                         name and ID
-    #         all         :   Prints all string representation of all instances
-    #         update      :   Updates an instance based on the class name and id
-    #                         by adding or updating attribute (save the change into
-    #                         the JSON file).
-    #         """
-    #
-    #         print(help_msg)
-
     def default(self, arg):
         """
         This method handles teh default command format where the class name
@@ -149,7 +96,8 @@ class HBNBCommand(cmd.Cmd):
             if len(cmd_and_attrib) < 2:
                 print("** instance id missing **")
             else:
-                HBNBCommand.do_destroy(self, cls_name + ' ' + cmd_and_attrib[1])
+                HBNBCommand.do_destroy(self, cls_name + ' ' +
+                                       cmd_and_attrib[1])
         elif cmd_name == "update":
             update_params = cmd_and_attrib[1].split(",")
             if len(update_params) < 1:
@@ -167,10 +115,11 @@ class HBNBCommand(cmd.Cmd):
                     if '.' in upd_cmd_name:
                         obj_name, cmd = upd_cmd_name.split('.')
                         if ',' in args_part:
-                            id_str, json_str = map(str.strip, args_part.split(',', 1))
+                            id_str, json_str = map(str.strip,
+                                                   args_part.split(',', 1))
                             obj_id = id_str.strip('"')
-                            HBNBCommand.do_update(self, cls_name + ' ' + obj_id + ' ' + json_str)
-
+                            HBNBCommand.do_update(self, cls_name + ' ' +
+                                                  obj_id + ' ' + json_str)
 
     #         Custom Commands
 
@@ -355,7 +304,8 @@ class HBNBCommand(cmd.Cmd):
             arg:
 
         Example:
-            count UserUser f650f143-6b7a-4630-a21b-562cda8f4a04 {'first_name': 'Chris', 'age': '32'}
+            count UserUser f650f143-6b7a-4630-a21b-562cda8f4a04
+            {'first_name': 'Chris', 'age': '32'}
         Returns:
 
         """

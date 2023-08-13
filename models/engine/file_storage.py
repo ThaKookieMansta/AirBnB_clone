@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-This module contains the class File storage which handles serialization and deserialization of the dictionaries
+This module contains the class File storage which handles
+serialization and deserialization of the dictionaries
 """
 import datetime
 import json
@@ -16,7 +17,8 @@ from models.state import State
 
 class FileStorage:
     """
-    This class is the file storage class that handles serialization and deserialization of the dictionaries
+    This class is the file storage class that handles
+    serialization and deserialization of the dictionaries
     """
     __file_path = "file.json"
     __objects = {}
@@ -55,7 +57,8 @@ class FileStorage:
 
         """
         new_dict = self.__objects
-        object_dictionary = {obj_id: obj.to_dict() for obj_id, obj in new_dict.items()}
+        object_dictionary = {obj_id: obj.to_dict() for obj_id, obj in
+                             new_dict.items()}
 
         for obj_id in object_dictionary:
             obj_data = object_dictionary[obj_id]
@@ -68,7 +71,8 @@ class FileStorage:
 
     def reload(self):
         """
-        deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; otherwise, do nothing.
+        deserializes the JSON file to __objects (only if the JSON
+        file (__file_path) exists ; otherwise, do nothing.
         If the file doesn't exist, no exception should be raised)
 
         Returns:
