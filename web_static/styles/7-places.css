@@ -1,0 +1,26 @@
+/*
+ * === Places div class style ===
+ */
+
+/* Places style */
+.places article {
+    border: 1px solid #ff5a5f;
+    width: 390px;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.places h1 {
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+    margin: 11px 0;
+}
+
+.places h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
